@@ -28,6 +28,9 @@ app.post('/', (request, response) => {
 app.put('/:id', (request, response) => {
     try {
         const { id } = request.params;
+        const { label, category, priority } = request.body;
+        const data = updataEnvironment(id, label, category, priority);
+        response.send(data);
     } catch (error) {
         response.send(error.message);
     }

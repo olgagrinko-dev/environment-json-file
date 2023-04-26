@@ -28,11 +28,9 @@ function updataEnvironment(id, label, category, priority) {
             label: label,
             category: category,
             priority: priority,
-
-        });
-        return filtered;
+        });       
     } else {
-        return 'такого id нет';  
+        throw new Error ('такого id нет');  
     };
     fs.writeFileSync(path, JSON.stringify(filtered));
     return filtered;
